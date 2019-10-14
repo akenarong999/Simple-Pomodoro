@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     }
     
     @objc func updateTimer(){
+        
         if(workSecondRemain>0){
            // percentage = Float(100)-(Float(secondRemain)/Float(1500)*100)
             let (m, s) = secondsToMinutesSeconds(seconds: workSecondRemain)
@@ -60,7 +61,7 @@ class ViewController: UIViewController {
     
     @IBAction func resetButton(_ sender: UIBarButtonItem) {
         
-            let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to give up and reset the timer?", preferredStyle: .alert)
+            let dialogMessage = UIAlertController(title: "Confirm", message: "😢 Are you sure you want to give up and reset the timer?", preferredStyle: .alert)
                
                // Create OK button with action handler
                let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
