@@ -59,11 +59,33 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetButton(_ sender: UIBarButtonItem) {
-        workSecondRemain = 1499
-        restSecondRemain = 299
-        startButton.isEnabled = true
-        timer.invalidate()
-        self.loadView()
+        
+            let dialogMessage = UIAlertController(title: "Confirm", message: "Are you sure you want to give up and reset the timer?", preferredStyle: .alert)
+               
+               // Create OK button with action handler
+               let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                    self.resetTimer()
+               })
+               
+               // Create Cancel button with action handlder
+               let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) -> Void in
+               }
+            
+               dialogMessage.addAction(ok)
+               dialogMessage.addAction(cancel)
+               
+               self.present(dialogMessage, animated: true, completion: nil)
+           }
+        
+           func resetTimer()
+           {
+               workSecondRemain = 1499
+               restSecondRemain = 299
+               startButton.isEnabled = true
+               timer.invalidate()
+               self.loadView()
+           }
+
     }
-}
+
 
